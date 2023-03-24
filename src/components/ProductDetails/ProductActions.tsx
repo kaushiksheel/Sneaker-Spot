@@ -1,5 +1,3 @@
-import React from "react";
-
 export const ProductActions = () => {
     return (
         <div className="mt-9">

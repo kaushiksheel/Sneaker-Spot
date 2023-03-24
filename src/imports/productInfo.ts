@@ -5,5 +5,7 @@ import { ProductMedia } from "../components/ProductMedia";
 import { useProductInfo } from "../hooks/useProductInfo";
 import { IBenefits, IProductInfo, ISizes, IThumbnails } from "../interfaces/IProducts";
 
-export { Header, ProductDetails, ProductMedia, useParams, useProductInfo };
+import { Spinner } from "../components/Spinner";
+
+export { Header, ProductDetails, ProductMedia, useParams, useProductInfo, Spinner };
 export type { IBenefits, IProductInfo, ISizes, IThumbnails };

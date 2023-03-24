@@ -1,3 +1,4 @@
+import { useRecoilValue } from "recoil";
 import {
     Header,
     IProducts,
@@ -6,13 +7,15 @@ import {
     WishlistState,
     useEffect,
     useRecoilState,
-    useWishlist
+    useWishlist,
+    wishlistLength
 } from "../imports/wishlist";
 
 function Wishlist() {
     const { data: wishlistItems, isLoading } = useWishlist();
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const [wishlistState, setWishlistState] = useRecoilState(WishlistState);
+    const WishlistLength = useRecoilValue(wishlistLength);
 
     useEffect(() => {
         if (wishlistItems) {
@@ -23,12 +26,17 @@ function Wishlist() {
         <>
             <Header />
             <main className="max-w-container mx-auto px-5 lg:px-0 my-10">
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    {isLoading && skeletons.map((skeleton) => <ShoeCardSkeleton key={skeleton} />)}
-                    {wishlistState?.map((product) => (
-                        <ShoeCard key={product.name} product={product} />
-                    ))}
-                </div>
+                {WishlistLength < 1 ? (
+                    <p className="text-3xl font-medium">Empty wishlist 😥😥</p>
+                ) : (
+                    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        {isLoading &&
+                            skeletons.map((skeleton) => <ShoeCardSkeleton key={skeleton} />)}
+                        {wishlistState?.map((product) => (
+                            <ShoeCard key={product.name} product={product} />
+                        ))}
+                    </div>
+                )}
             </main>
         </>
     );

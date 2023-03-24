@@ -6,6 +6,7 @@ import { ShoeCardSkeleton } from "../components/ShoeCardSkeleton";
 import { useWishlist } from "../hooks/useWishlistItems";
 import { IProducts } from "../interfaces/IProducts";
 import { wishlistState as WishlistState } from "../recoil/atoms/wishlistAtom";
+import { wishlistLength } from "../recoil/selectors/wishlistSelector";
 
 export {
     Header,
@@ -14,6 +15,7 @@ export {
     WishlistState,
     useEffect,
     useRecoilState,
-    useWishlist
+    useWishlist,
+    wishlistLength
 };
 export type { IProducts };

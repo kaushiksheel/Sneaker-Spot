@@ -35,7 +35,7 @@ function Cart() {
                     ) : (
                         <>
                             <CartItem />
-                            <CartTotal />
+                            <CartTotal cartItems={cartItems} />
                         </>
                     )}
                 </div>

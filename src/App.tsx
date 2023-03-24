@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { RecoilRoot } from "recoil";
@@ -17,16 +17,18 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <RecoilRoot>
-                <Suspense>
-                    <Routes>
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/" element={<Home />} />
-                        <Route path="/:slug" element={<ProductInfo />} />
-                        <Route path="/orders" element={<Orders />} />
-                        <Route path="/wishlist" element={<Wishlist />} />
-                        <Route path="/cart" element={<Cart />} />
-                    </Routes>
-                </Suspense>
+                <Router>
+                    <Suspense>
+                        <Routes>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/" element={<Home />} />
+                            <Route path="/:slug" element={<ProductInfo />} />
+                            <Route path="/orders" element={<Orders />} />
+                            <Route path="/wishlist" element={<Wishlist />} />
+                            <Route path="/cart" element={<Cart />} />
+                        </Routes>
+                    </Suspense>
+                </Router>
             </RecoilRoot>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

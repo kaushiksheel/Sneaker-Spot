@@ -12,10 +12,10 @@ export const CardAction = ({ product }: IProps) => {
 
     const addToCart = () => {
         const { name, img, slug, price, quantity } = product;
-        const existingItem = cartItems?.find((item) => item.id === product.id);
+        const existingItem = cartItems?.find((item) => item.name === product.name);
         if (existingItem) {
             const updatedItems = cartItems.map((item) => {
-                if (item.id === product.id) {
+                if (item.name === product.name) {
                     return { ...item, quantity: item.quantity + 1 };
                 }
                 return item;
@@ -30,7 +30,6 @@ export const CardAction = ({ product }: IProps) => {
         AddToCart(name, img, price, quantity, slug);
     };
 
-    // addToCart(name, img, price, quantity, slug).catch((e) => console.log(e));
     return (
         <button
             className="font-bold text-black hover:text-white hover:bg-black text-center w-full text-2xl py-6 transition-all ease-in-out"

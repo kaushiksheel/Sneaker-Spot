@@ -21,7 +21,7 @@ export const CartProduct = ({ item }: IProps) => {
                 ;
             </div>
             <div className="flex items-center space-x-6 ">
-                <CartQuantity quantity={quantity} />
+                <CartQuantity quantity={quantity} name={item.name} />
                 <p className="text-2xl font-semibold">${price}</p>
                 <RemoveCartItem name={name} />
             </div>

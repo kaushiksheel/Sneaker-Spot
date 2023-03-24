@@ -6,19 +6,21 @@ import {
     ProductDetails,
     ProductMedia,
     useParams,
-    useProductInfo
+    useProductInfo,
+    Spinner
 } from "../imports/productInfo";
 
 function ProductInfo() {
     const params = useParams();
     const { slug } = params;
 
-    const { data } = useProductInfo(slug as string);
+    const { data, isLoading } = useProductInfo(slug as string);
 
     return (
         <>
             <Header />
             <main className="max-w-container mx-auto px-5 lg:px-0 my-10">
+                {isLoading && <Spinner />}
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10">
                     <ProductMedia images={data?.thumbnails as IThumbnails[]} />
                     <ProductDetails
