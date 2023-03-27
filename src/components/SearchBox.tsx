@@ -18,7 +18,7 @@ export const SearchBox = () => {
     }, [query]);
 
     return (
-        <form className=" items-center hidden md:flex">
+        <form className=" items-center hidden lg:flex">
             <label htmlFor="simple-search" className="sr-only">
                 Search
             </label>

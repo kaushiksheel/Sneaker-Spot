@@ -13,7 +13,7 @@ import {
 
 const schema = z.object({
     email: z.string().email(),
-    password: z.string().min(5, { message: "String must contain at least 5 character" })
+    password: z.string().min(5, { message: "Password must contain at least 5 character" })
 });
 
 type FormData = z.infer<typeof schema>;

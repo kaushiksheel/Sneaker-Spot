@@ -1,16 +1,20 @@
-import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { RecoilRoot } from "recoil";
-import Notfound from "./pages/Notfound";
-
-const Home = lazy(() => import("./pages/Home"));
-const Wishlist = lazy(() => import("./pages/Wishlist"));
-const Cart = lazy(() => import("./pages/Cart"));
-const ProductInfo = lazy(() => import("./pages/ProductInfo"));
-const Orders = lazy(() => import("./pages/Orders"));
-const Login = lazy(() => import("./pages/Login"));
+import {
+    Notfound,
+    QueryClient,
+    QueryClientProvider,
+    ReactQueryDevtools,
+    RecoilRoot,
+    Route,
+    Routes,
+    Spinner,
+    Suspense,
+    Cart,
+    Home,
+    Login,
+    Orders,
+    ProductInfo,
+    Wishlist
+} from "./imports/app";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +22,7 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <RecoilRoot>
-                <Suspense>
+                <Suspense fallback={<Spinner />}>
                     <Routes>
                         <Route path="/" element={<Login />} />
                         <Route path="/shoes" element={<Home />} />

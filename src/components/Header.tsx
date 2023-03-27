@@ -21,9 +21,14 @@ export const Header = () => {
         localStorage.removeItem("token");
     };
 
+    const toggleNav = () => {
+        const navbar = document.querySelector(".navbar");
+        navbar?.classList.toggle("hidden");
+    };
+
     return (
         <header className="border  bg-white sticky top-0 h-fit z-20">
-            <nav className="max-w-container mx-auto py-6 flex items-center justify-between px-5 lg:px-0 flex-wrap">
+            <nav className="max-w-container mx-auto py-6 flex items-center justify-between px-5 lg:px-0 flex-wrap ">
                 <div className="flex items-center space-x-4">
                     <NavLink to="/shoes" className="text-3xl font-semibold">
                         SneakerSpot
@@ -31,8 +36,13 @@ export const Header = () => {
 
                     <SearchBox />
                 </div>
-
-                <ul className=" items-center space-x-7 hidden md:flex ">
+                <Bars3Icon
+                    onClick={toggleNav}
+                    width={24}
+                    height={24}
+                    className="md:hidden cursor-pointer "
+                />
+                <ul className=" navbar  items-center md:space-x-7  md:flex flex-col md:flex-row w-full  space-y-6 md:w-auto md:space-y-0 mt-5 md:mt-0 hidden ">
                     {navLinks.map(({ IconName, id, path, title }) => (
                         <li key={id} className="relative">
                             <NavLink
@@ -73,7 +83,6 @@ export const Header = () => {
                         )}
                     </li>
                 </ul>
-                <Bars3Icon width={24} height={24} className="md:hidden cursor-pointer" />
             </nav>
         </header>
     );
