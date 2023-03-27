@@ -33,7 +33,7 @@ export const ProductDetails = ({
                 </ul>
             </Accordian>
             <Accordian title="Product Information">{productInfo?.text}</Accordian>
-            <CardAction product={product} />
+            <CardAction product={product} border={true} />
         </div>
     );
 };

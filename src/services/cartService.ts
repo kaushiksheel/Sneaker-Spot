@@ -10,7 +10,11 @@ export const addToCart = (
 ) => apiClient.post("/add-to-cart", { name, img, price, quantity, slug });
 
 export const getCartItems = async (): Promise<IProducts[]> => {
-    const { data } = await apiClient.get("/get-cart-item");
+    const { data } = await apiClient.get("/get-cart-item", {
+        headers: {
+            "x-auth-token": localStorage.getItem("token")
+        }
+    });
     return data as IProducts[];
 };
 

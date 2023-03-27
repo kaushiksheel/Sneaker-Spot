@@ -2,7 +2,11 @@ import { IProducts } from "../interfaces/IProducts";
 import { apiClient } from "./api-client";
 
 export const getWishlistItems = async (): Promise<IProducts[]> => {
-    const { data } = await apiClient("/get-wishlist-item");
+    const { data } = await apiClient("/get-wishlist-item", {
+        headers: {
+            "x-auth-token": localStorage.getItem("token")
+        }
+    });
     return data;
 };
 

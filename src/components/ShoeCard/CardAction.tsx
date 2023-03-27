@@ -5,9 +5,10 @@ import { addToCart as AddToCart } from "../../services/cartService";
 
 interface IProps {
     product: IProducts;
+    border: boolean;
 }
 
-export const CardAction = ({ product }: IProps) => {
+export const CardAction = ({ product, border }: IProps) => {
     const [cartItems, setCartItems] = useRecoilState(cartState);
 
     const addToCart = () => {
@@ -32,7 +33,9 @@ export const CardAction = ({ product }: IProps) => {
 
     return (
         <button
-            className="font-bold text-black hover:text-white hover:bg-black text-center w-full text-2xl py-6 transition-all ease-in-out"
+            className={`${
+                border && "border"
+            } font-bold text-black hover:text-white hover:bg-black text-center w-full text-2xl py-6 transition-all ease-in-out`}
             onClick={addToCart}>
             Add to cart
         </button>

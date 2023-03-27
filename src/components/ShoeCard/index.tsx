@@ -15,7 +15,7 @@ export const ShoeCard = ({ product }: IProps) => {
         <div className="w-full h-fit bg-[#F6F6F6] overflow-hidden relative ">
             <CardMedia img={img} slug={slug} />
             <CardInfo name={name} price={price} />
-            <CardAction product={product} />
+            <CardAction product={product} border={false} />
             <Like product={product} />
         </div>
     );
