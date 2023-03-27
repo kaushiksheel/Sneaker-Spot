@@ -25,7 +25,7 @@ function Wishlist() {
     return (
         <>
             <Header />
-            <main className="max-w-container mx-auto px-5 lg:px-0 my-10">
+            <main data-testid="wishlist" className="max-w-container mx-auto px-5 lg:px-0 my-10">
                 {WishlistLength < 1 ? (
                     <p className="text-3xl font-medium">Empty wishlist 😥😥</p>
                 ) : (

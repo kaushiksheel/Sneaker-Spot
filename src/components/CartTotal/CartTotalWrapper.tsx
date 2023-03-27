@@ -5,5 +5,9 @@ interface IProps {
 }
 
 export const CartTotalWrapper = ({ children }: IProps) => {
-    return <div className="bg-[#18181B] p-10 rounded-lg h-fit">{children}</div>;
+    return (
+        <div data-testid="cart-total-wrapper" className="bg-[#18181B] p-10 rounded-lg h-fit">
+            {children}
+        </div>
+    );
 };

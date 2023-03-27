@@ -12,8 +12,7 @@ export const Accordian = ({ title, children }: IProps) => {
         <div className="mt-11 border-y py-9 mb-10">
             <header
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-between cursor-pointer"
-            >
+                className="flex items-center justify-between cursor-pointer">
                 <p className="font-semibold text-3xl">{title}</p>
                 {isOpen ? (
                     <ChevronUpIcon width={20} height={20} className="cursor-pointer" />

@@ -55,7 +55,9 @@ function Home() {
                         options={sortOptions as unknown as IOptions[]}
                     />
                 </div>
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div
+                    data-testid="shoecard-container"
+                    className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {isLoading && skeletons.map((skeleton) => <ShoeCardSkeleton key={skeleton} />)}
                     {products?.map((product: IProducts) => (
                         <ShoeCard key={product.name} product={product} />

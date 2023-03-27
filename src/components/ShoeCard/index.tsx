@@ -12,7 +12,7 @@ export const ShoeCard = ({ product }: IProps) => {
     const { img, slug, name, price } = product;
 
     return (
-        <div className="w-full h-fit bg-[#F6F6F6] overflow-hidden relative ">
+        <div className="w-full h-fit bg-[#F6F6F6] overflow-hidden relative" data-testid="shoe-card">
             <CardMedia img={img} slug={slug} />
             <CardInfo name={name} price={price} />
             <CardAction product={product} border={false} />

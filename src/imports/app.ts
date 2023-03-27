@@ -1,10 +1,11 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { RecoilRoot } from "recoil";
 import Notfound from "../pages/Notfound";
 import { Spinner } from "../components/Spinner";
+import { Routes } from "../components/Routes";
 
 const Home = lazy(() => import("../pages/Home"));
 const Wishlist = lazy(() => import("../pages/Wishlist"));
@@ -21,7 +22,6 @@ export {
     ReactQueryDevtools,
     RecoilRoot,
     Route,
-    Routes,
     Spinner,
     Suspense,
     lazy,
@@ -31,5 +31,6 @@ export {
     Orders,
     ProductInfo,
     Wishlist,
-    Signup
+    Signup,
+    Routes
 };

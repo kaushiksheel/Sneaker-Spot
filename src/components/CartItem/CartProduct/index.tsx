@@ -12,7 +12,7 @@ export const CartProduct = ({ item }: IProps) => {
     const { img, name, price, quantity, slug } = item;
 
     return (
-        <div className="flex mb-5">
+        <div data-testid="cart-item" className="flex mb-5">
             <div className="flex flex-1 items-center space-x-6">
                 <CartMedia img={img} />
                 <Link to={`/shoes/${slug}`} className="text-2xl font-semibold">

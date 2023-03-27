@@ -1,20 +1,11 @@
 import {
-    Notfound,
     QueryClient,
     QueryClientProvider,
     ReactQueryDevtools,
     RecoilRoot,
-    Route,
-    Routes,
     Spinner,
     Suspense,
-    Cart,
-    Home,
-    Login,
-    Orders,
-    ProductInfo,
-    Wishlist,
-    Signup
+    Routes
 } from "./imports/app";
 
 const queryClient = new QueryClient();
@@ -24,16 +15,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <RecoilRoot>
                 <Suspense fallback={<Spinner />}>
-                    <Routes>
-                        <Route path="/" element={<Login />} />
-                        <Route path="/signup" element={<Signup />} />
-                        <Route path="/shoes" element={<Home />} />
-                        <Route path="/shoes/:slug" element={<ProductInfo />} />
-                        <Route path="/orders" element={<Orders />} />
-                        <Route path="/wishlist" element={<Wishlist />} />
-                        <Route path="/cart" element={<Cart />} />
-                        <Route path="*" element={<Notfound />} />
-                    </Routes>
+                    <Routes />
                 </Suspense>
             </RecoilRoot>
             <ReactQueryDevtools initialIsOpen={false} />
