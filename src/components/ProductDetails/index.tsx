@@ -1,6 +1,6 @@
-import { IBenefits, IProductInfo } from "../../interfaces/IProducts";
+import { IBenefits, IProductInfo, IProducts } from "../../interfaces/IProducts";
+import { CardAction } from "../ShoeCard/CardAction";
 import { Accordian } from "./Accordian";
-import { ProductActions } from "./ProductActions";
 import { ProductInfo } from "./ProductInfo";
 
 interface IProps {
@@ -9,9 +9,17 @@ interface IProps {
     overview: string;
     productInfo: IProductInfo;
     benefits: IBenefits[];
+    product: IProducts;
 }
 
-export const ProductDetails = ({ name, price, overview, productInfo, benefits }: IProps) => {
+export const ProductDetails = ({
+    name,
+    price,
+    overview,
+    productInfo,
+    benefits,
+    product
+}: IProps) => {
     return (
         <div className="pb-8">
             <ProductInfo name={name} price={price} overview={overview} />
@@ -25,7 +33,7 @@ export const ProductDetails = ({ name, price, overview, productInfo, benefits }:
                 </ul>
             </Accordian>
             <Accordian title="Product Information">{productInfo?.text}</Accordian>
-            <ProductActions />
+            <CardAction product={product} />
         </div>
     );
 };

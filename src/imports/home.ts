@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { DropDown } from "../components/DropDown";
-import { Header } from "../components/Header";
 import { ShoeCard } from "../components/ShoeCard";
 import { ShoeCardSkeleton } from "../components/ShoeCardSkeleton";
 import { sortOptions } from "../data/options";
@@ -12,7 +11,6 @@ import { productsState } from "../recoil/atoms/productAtom";
 
 export {
     DropDown,
-    Header,
     ShoeCard,
     ShoeCardSkeleton,
     productsState,

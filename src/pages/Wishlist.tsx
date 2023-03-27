@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
+import { Header } from "../components/Header";
 import {
-    Header,
     IProducts,
     ShoeCard,
     ShoeCardSkeleton,

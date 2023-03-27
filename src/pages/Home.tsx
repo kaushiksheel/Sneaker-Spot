@@ -1,6 +1,6 @@
+import { Header } from "../components/Header";
 import {
     DropDown,
-    Header,
     IOptions,
     IProducts,
     ShoeCard,
@@ -41,11 +41,6 @@ function Home() {
                     <DropDown
                         setSelectedOption={setSelectedOption}
                         title="Sort by"
-                        options={sortOptions as unknown as IOptions[]}
-                    />
-                    <DropDown
-                        setSelectedOption={setSelectedOption}
-                        title="Filter"
                         options={sortOptions as unknown as IOptions[]}
                     />
                 </div>

@@ -18,7 +18,7 @@ export const CardMedia = ({ img, slug }: IProps) => {
                 className="object-cover  h-[250px]  cursor-pointer "
                 effect="blur"
                 loading="lazy"
-                onClick={() => navigate(`/${slug}`)}
+                onClick={() => navigate(`/shoes/${slug}`)}
             />
         </span>
     );

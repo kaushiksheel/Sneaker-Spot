@@ -26,6 +26,8 @@ body {
     }
 }
 
-.slider-wrapper {
-    height: 400px;
+@media screen and (min-width: 900px) {
+    .slider-wrapper {
+        width: 50% !important;
+    }
 }

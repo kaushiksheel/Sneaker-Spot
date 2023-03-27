@@ -1,5 +1,5 @@
+import { Header } from "../components/Header";
 import {
-    Header,
     IBenefits,
     IProductInfo,
     IThumbnails,
@@ -9,6 +9,7 @@ import {
     useProductInfo,
     Spinner
 } from "../imports/productInfo";
+import { IProducts } from "../interfaces/IProducts";
 
 function ProductInfo() {
     const params = useParams();
@@ -29,6 +30,7 @@ function ProductInfo() {
                         overview={data?.overview as string}
                         benefits={data?.benefits as IBenefits[]}
                         productInfo={data?.product_information as IProductInfo}
+                        product={data as unknown as IProducts}
                     />
                 </div>
             </main>

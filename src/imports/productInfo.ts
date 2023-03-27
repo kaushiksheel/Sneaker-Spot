@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Header } from "../components/Header";
+
 import { ProductDetails } from "../components/ProductDetails";
 import { ProductMedia } from "../components/ProductMedia";
 import { useProductInfo } from "../hooks/useProductInfo";
@@ -7,5 +7,5 @@ import { IBenefits, IProductInfo, ISizes, IThumbnails } from "../interfaces/IPro
 
 import { Spinner } from "../components/Spinner";
 
-export { Header, ProductDetails, ProductMedia, useParams, useProductInfo, Spinner };
+export { ProductDetails, ProductMedia, useParams, useProductInfo, Spinner };
 export type { IBenefits, IProductInfo, ISizes, IThumbnails };

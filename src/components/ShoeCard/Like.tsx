@@ -16,7 +16,7 @@ export const Like = ({ product }: IProps) => {
     const [wishlistItems, setWishlistItems] = useRecoilState(wishlistState);
 
     // checking if it is liked or not
-    const isLiked = wishlistItems?.find((item) => item.id === product.id);
+    const isLiked = wishlistItems?.find((item) => item.name === product.name);
 
     const removeFromWishlist = () => {
         const item = wishlistItems.filter((item) => item.name !== product.name);

@@ -9,7 +9,7 @@ interface IProps {
 export const Accordian = ({ title, children }: IProps) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="mt-11 border-y py-9">
+        <div className="mt-11 border-y py-9 mb-10">
             <header
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center justify-between cursor-pointer">

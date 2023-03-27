@@ -1,11 +1,11 @@
 import { useEffect } from "react";
+import { Header } from "../components/Header";
 import { Spinner } from "../components/Spinner";
 import {
     useRecoilState,
     useRecoilValue,
     CartItem,
     CartTotal,
-    Header,
     useCartItems,
     cartState,
     CartLengthSelector

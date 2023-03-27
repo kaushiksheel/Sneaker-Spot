@@ -1,12 +1,24 @@
-import { navLinks } from "../data/navLinks";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import {
+    HeartIcon,
+    HomeIcon,
+    ShoppingBagIcon,
+    UserCircleIcon,
+    UserIcon
+} from "@heroicons/react/24/outline";
 import { useCurrentUser } from "../hooks/useCurrentUser";
+import { SearchBox } from "./SearchBox";
+import { useRecoilValue } from "recoil";
+import { cartLengthSelector } from "../recoil/selectors/cartSelector";
+import { wishlistLength as WishlistlengthSelector } from "../imports/wishlist";
 
 export const Header = () => {
     const { pathname } = useLocation();
 
     const { user } = useCurrentUser();
+    const cartLength = useRecoilValue(cartLengthSelector);
+    const wishlistLength = useRecoilValue(WishlistlengthSelector);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -15,37 +27,69 @@ export const Header = () => {
     return (
         <header className="border  bg-white sticky top-0 h-fit z-20">
             <nav className="max-w-container mx-auto py-6 flex items-center justify-between px-5 lg:px-0 flex-wrap">
-                <Link to="/" className="text-3xl font-semibold">
-                    SneakerSpot
-                </Link>
+                <div className="flex items-center space-x-4">
+                    <NavLink to="/shoes" className="text-3xl font-semibold">
+                        SneakerSpot
+                    </NavLink>
+
+                    <SearchBox />
+                </div>
+
                 <ul className=" items-center space-x-7 hidden md:flex">
-                    {navLinks.map(({ id, path, title }) => (
-                        <li key={id} className="  ">
-                            <Link
-                                to={path}
-                                className={`text-2xl font-medium ${
-                                    pathname === path
-                                        ? "text-black"
-                                        : "text-gray-400 hover:text-black "
-                                }`}>
-                                {title}
-                            </Link>
-                        </li>
-                    ))}
+                    <li>
+                        <NavLink
+                            to={"/shoes"}
+                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
+                            <HomeIcon width={24} height={24} color="black" />
+                            <span>Home</span>
+                        </NavLink>
+                    </li>
+
+                    <li className=" relative ">
+                        <NavLink
+                            to={"/cart"}
+                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
+                            <ShoppingBagIcon
+                                width={24}
+                                height={24}
+                                color="black"
+                                className="relative"></ShoppingBagIcon>
+                            <span>Cart</span>
+                        </NavLink>
+                        {cartLength > 0 && (
+                            <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
+                                {cartLength}
+                            </span>
+                        )}
+                    </li>
+                    <li className="  relative">
+                        <NavLink
+                            to={"/wishlist"}
+                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
+                            <HeartIcon width={24} height={24} color="black" />
+                            <span>Wishlist</span>
+                        </NavLink>
+                        {wishlistLength > 0 && (
+                            <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
+                                {wishlistLength}
+                            </span>
+                        )}
+                    </li>
+
                     <li>
                         {user ? (
-                            <Link
+                            <NavLink
                                 className="text-2xl font-medium border border-black rounded-xl px-11 py-3 hover:bg-black hover:text-white transition-all ease-in-out"
-                                to="/login"
+                                to="/"
                                 onClick={handleLogout}>
                                 Logout
-                            </Link>
+                            </NavLink>
                         ) : (
-                            <Link
+                            <NavLink
                                 className="text-2xl font-medium border border-black rounded-xl px-11 py-3 hover:bg-black hover:text-white transition-all ease-in-out"
-                                to="/login">
+                                to="/">
                                 Login
-                            </Link>
+                            </NavLink>
                         )}
                     </li>
                 </ul>

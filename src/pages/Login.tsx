@@ -36,7 +36,7 @@ function Login() {
             .then(({ data }) => {
                 setLoading(false);
                 localStorage.setItem("token", data);
-                navigate("/");
+                navigate("/shoes");
             })
             .catch((error: unknown) => {
                 if (error instanceof AxiosError) {
