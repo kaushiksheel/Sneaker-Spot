@@ -47,7 +47,8 @@ export const Header = () => {
                         <li key={id} className="relative">
                             <NavLink
                                 to={path}
-                                className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
+                                className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2"
+                            >
                                 <IconName width={24} height={24} color="black" />
                                 <span className={`${path === pathname && "text-black"}`}>
                                     {title}
@@ -71,13 +72,15 @@ export const Header = () => {
                             <NavLink
                                 className="text-2xl font-medium border border-black rounded-xl px-11 py-3 hover:bg-black hover:text-white transition-all ease-in-out"
                                 to="/"
-                                onClick={handleLogout}>
+                                onClick={handleLogout}
+                            >
                                 Logout
                             </NavLink>
                         ) : (
                             <NavLink
                                 className="text-2xl font-medium border border-black rounded-xl px-11 py-3 hover:bg-black hover:text-white transition-all ease-in-out"
-                                to="/">
+                                to="/"
+                            >
                                 Login
                             </NavLink>
                         )}

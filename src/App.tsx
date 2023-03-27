@@ -13,7 +13,8 @@ import {
     Login,
     Orders,
     ProductInfo,
-    Wishlist
+    Wishlist,
+    Signup
 } from "./imports/app";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ function App() {
                 <Suspense fallback={<Spinner />}>
                     <Routes>
                         <Route path="/" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
                         <Route path="/shoes" element={<Home />} />
                         <Route path="/shoes/:slug" element={<ProductInfo />} />
                         <Route path="/orders" element={<Orders />} />

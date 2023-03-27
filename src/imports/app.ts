@@ -12,6 +12,7 @@ const Cart = lazy(() => import("../pages/Cart"));
 const ProductInfo = lazy(() => import("../pages/ProductInfo"));
 const Orders = lazy(() => import("../pages/Orders"));
 const Login = lazy(() => import("../pages/Login"));
+const Signup = lazy(() => import("../pages/Signup"));
 
 export {
     Notfound,
@@ -29,5 +30,6 @@ export {
     Login,
     Orders,
     ProductInfo,
-    Wishlist
+    Wishlist,
+    Signup
 };

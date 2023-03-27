@@ -36,7 +36,8 @@ export const CardAction = ({ product, border }: IProps) => {
             className={`${
                 border && "border"
             } font-bold text-black hover:text-white hover:bg-black text-center w-full text-2xl py-6 transition-all ease-in-out`}
-            onClick={addToCart}>
+            onClick={addToCart}
+        >
             Add to cart
         </button>
     );

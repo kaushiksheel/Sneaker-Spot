@@ -20,7 +20,8 @@ export const CartAction = () => {
     return (
         <button
             onClick={handleCheckout}
-            className="bg-white text-2xl text-center py-4 w-full rounded-lg font-semibold">
+            className="bg-white text-2xl text-center py-4 w-full rounded-lg font-semibold"
+        >
             Continue to Payment
         </button>
     );
