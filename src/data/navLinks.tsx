@@ -1,22 +1,22 @@
-import { HomeIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 export const navLinks = [
     {
         id: 1,
         title: "Home",
         path: "/shoes",
-        iconName: <HomeIcon />
+        IconName: HomeIcon
     },
     {
         id: 3,
         title: "Cart",
         path: "/cart",
-        iconName: <HomeIcon />
+        IconName: ShoppingBagIcon
     },
     {
         id: 2,
         title: "Wishlist",
         path: "/wishlist",
-        iconName: <HomeIcon />
+        IconName: HeartIcon
     }
 ];

@@ -5,6 +5,9 @@ import { useCartItems } from "../hooks/useCartItems";
 
 import { cartState } from "../recoil/atoms/cartAtom";
 import { cartLengthSelector as CartLengthSelector } from "../recoil/selectors/cartSelector";
+import { useEffect } from "react";
+import { Spinner } from "../components/Spinner";
+import { IProducts } from "../interfaces/IProducts";
 
 export {
     useRecoilState,
@@ -13,5 +16,8 @@ export {
     CartTotal,
     useCartItems,
     cartState,
-    CartLengthSelector
+    CartLengthSelector,
+    Spinner,
+    useEffect
 };
+export type { IProducts };

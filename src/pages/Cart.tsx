@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { Header } from "../components/Header";
-import { Spinner } from "../components/Spinner";
+
 import {
     useRecoilState,
     useRecoilValue,
@@ -8,9 +7,11 @@ import {
     CartTotal,
     useCartItems,
     cartState,
-    CartLengthSelector
+    CartLengthSelector,
+    IProducts,
+    Spinner,
+    useEffect
 } from "../imports/cart";
-import { IProducts } from "../interfaces/IProducts";
 
 function Cart() {
     const { data, isLoading } = useCartItems();

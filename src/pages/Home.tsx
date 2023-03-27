@@ -10,17 +10,28 @@ import {
     useEffect,
     useProducts,
     useRecoilState,
-    useState
+    useState,
+    cartState,
+    useCartItems,
+    useSetRecoilState,
+    useWishlist
 } from "../imports/home";
+import { WishlistState } from "../imports/wishlist";
 
 function Home() {
     const { data, isLoading } = useProducts();
+    const { data: cartItemsData } = useCartItems();
+    const { data: wishlistItems } = useWishlist();
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const [products, setProducts] = useRecoilState(productsState);
     const [selectedOption, setSelectedOption] = useState("");
+    const setCartItems = useSetRecoilState(cartState);
+    const setWishlistItems = useSetRecoilState(WishlistState);
 
     useEffect(() => {
         setProducts(data as IProducts[]);
+        setCartItems(cartItemsData as IProducts[]);
+        setWishlistItems(wishlistItems as IProducts[]);
     }, [data]);
 
     useEffect(() => {

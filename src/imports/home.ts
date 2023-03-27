@@ -8,6 +8,10 @@ import { useProducts } from "../hooks/useProducts";
 import { IOptions } from "../interfaces/IOptons";
 import { IProducts } from "../interfaces/IProducts";
 import { productsState } from "../recoil/atoms/productAtom";
+import { useCartItems } from "../hooks/useCartItems";
+import { useWishlist } from "../hooks/useWishlistItems";
+import { cartState } from "../imports/cart";
+import { useSetRecoilState } from "recoil";
 
 export {
     DropDown,
@@ -18,6 +22,10 @@ export {
     useEffect,
     useProducts,
     useRecoilState,
-    useState
+    useState,
+    cartState,
+    useCartItems,
+    useWishlist,
+    useSetRecoilState
 };
 export type { IOptions, IProducts };

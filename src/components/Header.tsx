@@ -1,17 +1,14 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { Bars3Icon } from "@heroicons/react/24/solid";
 import {
-    HeartIcon,
-    HomeIcon,
-    ShoppingBagIcon,
-    UserCircleIcon,
-    UserIcon
-} from "@heroicons/react/24/outline";
-import { useCurrentUser } from "../hooks/useCurrentUser";
-import { SearchBox } from "./SearchBox";
-import { useRecoilValue } from "recoil";
-import { cartLengthSelector } from "../recoil/selectors/cartSelector";
-import { wishlistLength as WishlistlengthSelector } from "../imports/wishlist";
+    Bars3Icon,
+    NavLink,
+    SearchBox,
+    WishlistlengthSelector,
+    cartLengthSelector,
+    navLinks,
+    useCurrentUser,
+    useLocation,
+    useRecoilValue
+} from "../imports/header";
 
 export const Header = () => {
     const { pathname } = useLocation();
@@ -35,46 +32,29 @@ export const Header = () => {
                     <SearchBox />
                 </div>
 
-                <ul className=" items-center space-x-7 hidden md:flex">
-                    <li>
-                        <NavLink
-                            to={"/shoes"}
-                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
-                            <HomeIcon width={24} height={24} color="black" />
-                            <span>Home</span>
-                        </NavLink>
-                    </li>
-
-                    <li className=" relative ">
-                        <NavLink
-                            to={"/cart"}
-                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
-                            <ShoppingBagIcon
-                                width={24}
-                                height={24}
-                                color="black"
-                                className="relative"></ShoppingBagIcon>
-                            <span>Cart</span>
-                        </NavLink>
-                        {cartLength > 0 && (
-                            <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
-                                {cartLength}
-                            </span>
-                        )}
-                    </li>
-                    <li className="  relative">
-                        <NavLink
-                            to={"/wishlist"}
-                            className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
-                            <HeartIcon width={24} height={24} color="black" />
-                            <span>Wishlist</span>
-                        </NavLink>
-                        {wishlistLength > 0 && (
-                            <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
-                                {wishlistLength}
-                            </span>
-                        )}
-                    </li>
+                <ul className=" items-center space-x-7 hidden md:flex ">
+                    {navLinks.map(({ IconName, id, path, title }) => (
+                        <li key={id} className="relative">
+                            <NavLink
+                                to={path}
+                                className="text-2xl font-medium text-gray-400 hover:text-black flex items-center space-x-2">
+                                <IconName width={24} height={24} color="black" />
+                                <span className={`${path === pathname && "text-black"}`}>
+                                    {title}
+                                </span>
+                            </NavLink>
+                            {title == "Cart" && cartLength > 0 && (
+                                <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
+                                    {cartLength}
+                                </span>
+                            )}
+                            {title == "Wishlist" && wishlistLength > 0 && (
+                                <span className="absolute w-[20px] h-[20px] bg-red-500 text-white rounded-full grid place-content-center -top-3 left-5">
+                                    {wishlistLength}
+                                </span>
+                            )}
+                        </li>
+                    ))}
 
                     <li>
                         {user ? (

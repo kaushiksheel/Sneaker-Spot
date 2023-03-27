@@ -1,4 +1,3 @@
-import { useRecoilValue } from "recoil";
 import { Header } from "../components/Header";
 import {
     IProducts,
@@ -8,7 +7,8 @@ import {
     useEffect,
     useRecoilState,
     useWishlist,
-    wishlistLength
+    wishlistLength,
+    useRecoilValue
 } from "../imports/wishlist";
 
 function Wishlist() {
