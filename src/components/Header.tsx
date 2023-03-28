@@ -1,3 +1,5 @@
+import { useSetRecoilState } from "recoil";
+import { cartState } from "../imports/cart";
 import {
     Bars3Icon,
     NavLink,
@@ -9,6 +11,7 @@ import {
     useLocation,
     useRecoilValue
 } from "../imports/header";
+import { wishlistState } from "../imports/like";
 
 export const Header = () => {
     const { pathname } = useLocation();
@@ -16,9 +19,13 @@ export const Header = () => {
     const { user } = useCurrentUser();
     const cartLength = useRecoilValue(cartLengthSelector);
     const wishlistLength = useRecoilValue(WishlistlengthSelector);
+    const setCartItems = useSetRecoilState(cartState);
+    const setWishlistItems = useSetRecoilState(wishlistState);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        setCartItems([]);
+        setWishlistItems([]);
     };
 
     const toggleNav = () => {

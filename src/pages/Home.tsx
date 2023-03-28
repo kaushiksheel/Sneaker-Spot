@@ -32,7 +32,7 @@ function Home() {
         setProducts(data as IProducts[]);
         setCartItems(cartItemsData as IProducts[]);
         setWishlistItems(wishlistItems as IProducts[]);
-    }, [data]);
+    }, [data, cartItemsData, wishlistItems]);
 
     useEffect(() => {
         if (selectedOption === "highToLow") {
@@ -57,7 +57,8 @@ function Home() {
                 </div>
                 <div
                     data-testid="shoecard-container"
-                    className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                >
                     {isLoading && skeletons.map((skeleton) => <ShoeCardSkeleton key={skeleton} />)}
                     {products?.map((product: IProducts) => (
                         <ShoeCard key={product.name} product={product} />
