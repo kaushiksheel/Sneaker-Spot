@@ -18,8 +18,7 @@ export const SizeButton = ({ size }: IProps) => {
                 isSelected ? "bg-black" : "bg-white"
             } ${
                 isSelected ? "text-white" : "text-black"
-            } hover:bg-black hover:text-white transition-all ease-in-out`}
-        >
+            } hover:bg-black hover:text-white transition-all ease-in-out`}>
             {size}
         </button>
     );

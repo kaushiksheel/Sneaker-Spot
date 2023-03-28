@@ -93,8 +93,7 @@ function Login() {
                             Don&apos;t have an account?{" "}
                             <span
                                 onClick={() => navigate("/signup")}
-                                className="text-black cursor-pointer"
-                            >
+                                className="text-black cursor-pointer">
                                 Signup
                             </span>
                         </p>
