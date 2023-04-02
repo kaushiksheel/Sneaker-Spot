@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
     AxiosError,
     Spinner,
@@ -45,6 +46,13 @@ function Login() {
                 }
             });
     });
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("token") ? true : false;
+        if (isAuthenticated) {
+            navigate("/shoes");
+        }
+    }, [navigate]);
 
     return (
         <>
